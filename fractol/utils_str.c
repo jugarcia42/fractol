@@ -36,23 +36,32 @@ int ft_atoi(const char *str)
 }
 
 // Convierte string a double, sin exponentes, con signo y decimales
-double ft_atof(const char *str)
+static int skip_whitespace_and_sign(const char *str, int *sign)
 {
-    double result = 0.0;
-    double frac = 0.0;
-    double divisor = 10.0;
-    int sign = 1;
     int i = 0;
+    *sign = 1;
 
     while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
         i++;
     if (str[i] == '-')
     {
-        sign = -1;
+        *sign = -1;
         i++;
     }
     else if (str[i] == '+')
         i++;
+    return i;
+}
+
+double ft_atof(const char *str)
+{
+    double result = 0.0;
+    double frac = 0.0;
+    double divisor = 10.0;
+    int sign;
+    int i;
+
+    i = skip_whitespace_and_sign(str, &sign);
 
     while (str[i] >= '0' && str[i] <= '9')
     {
@@ -71,6 +80,7 @@ double ft_atof(const char *str)
     }
     return (result + frac) * sign;
 }
+
 
 // Escribe string en salida estándar
 void ft_putstr(char *str)

@@ -31,11 +31,11 @@ typedef struct s_data {
     double  julia_c_im;
 }   t_data;
 
-// Prototipos mandelbrot.c
+// Prototipos fractales
 int mandelbrot(double x, double y);
-
-// Prototipos julia.c
 int julia(double zx, double zy, double c_re, double c_im);
+int tricorn(double x, double y);
+
 
 // Prototipos draw.c
 void draw_fractal(t_data *data);

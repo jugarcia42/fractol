@@ -44,9 +44,10 @@ void draw_fractal(t_data *data)
 
             if (data->fractal_type == 0)
                 iter = mandelbrot(re, im);
-            else
+            else if (data->fractal_type == 1)
                 iter = julia(re, im, data->julia_c_re, data->julia_c_im);
-
+            else if (data->fractal_type == 2)
+                iter = tricorn(re, im);
             int color = get_color(iter);
 
             put_pixel(data, x, y, color);

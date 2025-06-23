@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g -Iminilibx-linux
 MLX = -Lminilibx-linux -lmlx -lXext -lX11 -lbsd
 
-SRCS = main.c mandelbrot.c julia.c utils_str.c hooks.c init.c draw.c
+SRCS = main.c mandelbrot.c julia.c utils_str.c hooks.c init.c tricorn.c draw.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
